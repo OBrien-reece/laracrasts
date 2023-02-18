@@ -24,12 +24,10 @@
 
                         {{ (isset($currentCategory) ? ucwords($currentCategory->name) : 'Categories') }}
 
-                        <x-icon.icon
-                            icon = "svg-icon"
-                            style="right: 12px;"
-                            class="absolute pointer-events-none"
-                        />
-
+                       <x-icon.icon
+                           name="icon-svg-right"
+                           style="right: 12px;"
+                           class="absolute pointer-events-none" />
                     </button>
                 </x-slot:trigger>
 
