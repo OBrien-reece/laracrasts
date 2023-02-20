@@ -31,7 +31,7 @@
 
             <div class="text-sm mt-2">
                 <p>
-                    {{ $post->excerpt }}
+                    {!! \Stevebauman\Purify\Facades\Purify::clean($post->excerpt) !!}
                 </p>
             </div>
 
