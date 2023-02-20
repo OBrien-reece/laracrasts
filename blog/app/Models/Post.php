@@ -8,6 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
     use HasFactory;
+    /*Query Scopes*/
+    public function scopeFilter($query, array $filters) {
+
+        if($filters['search'] ?? false)  {
+            $query
+                ->where('title', 'like', '%' . request('search') . '%')
+                ->orWhere('body', 'like', '%' . request('search') . '%');
+        }
+    }
 
     protected $with = ['category', 'author'];
 
