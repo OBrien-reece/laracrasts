@@ -22,7 +22,7 @@ class PostFactory extends Factory
             'user_id' => User::factory(),
             'category_id' => Category::factory(),
             'title' => $this->faker->word,
-            'excerpt' => $this->faker->sentence,
+            'excerpt' => collect($this->faker->paragraphs(2))->map(fn($item) => "<p>{$item}</p>")->implode(''),
             'body' => $this->faker->paragraph,
             'slug' => $this->faker->slug,
             'published_at' => now()
