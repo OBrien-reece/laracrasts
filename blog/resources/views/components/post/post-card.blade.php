@@ -26,7 +26,7 @@
                 </div>
             </header>
 
-            <div class="text-sm mt-4">
+            <div class="text-sm mt-4 space-y-4">
                 <p style="font-family: SansSerif">
                     {!! \Stevebauman\Purify\Facades\Purify::clean($post->excerpt) !!}
                 </p>

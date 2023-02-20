@@ -43,8 +43,8 @@
                     {{ $post->title }}
                 </h1>
 
-                <div class="space-y-4 lg:text-lg leading-loose">
-                    {{ $post->body }}
+                <div class="space-y-4 lg:text-lg leading-loose" style="font-family: 'Luxurious Roman', cursive;">
+                    {!! \Stevebauman\Purify\Facades\Purify::clean($post->body) !!}
                 </div>
             </div>
         </article>
