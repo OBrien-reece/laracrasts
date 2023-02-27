@@ -15,7 +15,7 @@
 
     <x-post.drop-down-item
         :active="request()->routeIs('home')"
-        href="/">
+        href="/?{{ http_build_query(request()->except('category', 'page')) }}">
         All
     </x-post.drop-down-item>
 
@@ -23,7 +23,7 @@
 
         <x-post.drop-down-item
             :active="request()->is('categories/' . $category->slug)"
-            href="/?category={{ $category->slug }}&{{ http_build_query(request()->except('category')) }}">
+            href="/?category={{ $category->slug }}&{{ http_build_query(request()->except('category', 'page')) }}">
             {{ ucwords($category->name) }}
         </x-post.drop-down-item>
 
