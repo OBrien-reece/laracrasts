@@ -47,6 +47,11 @@
                     {!! \Stevebauman\Purify\Facades\Purify::clean($post->body) !!}
                 </div>
             </div>
+
+            <section class="col-span-8 col-start-5 mt-10 space-y-6">
+                <x-post.post-comment />
+                <x-post.post-comment />
+            </section>
         </article>
     </main>
 
