@@ -15,7 +15,8 @@ class PostController extends Controller
         return view('posts', [
             'posts' => $posts,
             'categories' => Category::all(),
-            'currentCategory' => Category::firstWhere('slug', request('category'))
+            /*'currentCategory' => Category::firstWhere('slug', request('category'))*/
+            'currentCategory' => Category::where('slug', request('category'))->first()
         ]);
     }
 
