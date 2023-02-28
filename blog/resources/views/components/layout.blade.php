@@ -21,9 +21,15 @@
         <div class="mt-8 md:mt-0">
             <a href="/" class="text-xs font-bold uppercase">Home Page</a>
 
-            <a href="/login" class="bg-blue-500 ml-3 rounded-full text-xs font-semibold text-white uppercase py-3 px-5">
-                Subscribe for Updates
-            </a>
+            @if(Auth::user())
+                <a href="#" class="bg-blue-500 ml-3 rounded-full text-xs font-semibold text-white uppercase py-3 px-5">
+                    {{ Auth::user()->name }}
+                </a>
+            @else
+                <a href="/login" class="bg-blue-500 ml-3 rounded-full text-xs font-semibold text-white uppercase py-3 px-5">
+                    Subscribe for Updates
+                </a>
+            @endif
         </div>
     </nav>
 
