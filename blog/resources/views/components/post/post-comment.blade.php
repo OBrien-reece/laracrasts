@@ -2,6 +2,7 @@
 
 <x-panel class="bg-gray-50">
     <article class="flex bg-gray-100 space-x-4">
+
         <div class="flex-shrink-0">
             <img src="https://i.pravatar.cc/60?u={{ $comment->id }}" alt="" width="60px" height="60px" class="rounded-xl">
         </div>

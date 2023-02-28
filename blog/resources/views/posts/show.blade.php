@@ -51,7 +51,8 @@
             <section class="col-span-8 col-start-5 mt-10 space-y-6">
 
                 <x-panel>
-                    <form action="#" method="POST">
+                    <form action="/post/{{ $post->slug }}/comments/" method="POST">
+                        @method('GET')
                         @csrf
 
                         <header class="flex items-center">
@@ -60,7 +61,7 @@
                         </header>
 
                         <div class="mt-7">
-                            <textarea rows="5" placeholder="Quick, think of something to say" name="" id="" cols="30" class="w-full focus:outline-none focus:ring"></textarea>
+                            <textarea rows="5" placeholder="Quick, think of something to say" name="body" id="" cols="30" class="w-full focus:outline-none focus:ring"></textarea>
                         </div>
 
                         <div class="flex justify-end mt-6 border-t border-gray-200 pt-6">

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PostCommentsController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\RegisterController;
 use App\Models\Category;
@@ -19,6 +20,8 @@ use App\Models\Post;
 */
 
 Route::get('/', [PostController::class, 'index'])->name('home');
+
+Route::get('/post/{post:slug}/comments', [PostCommentsController::class, 'store']);
 
 Route::get('/posts/{post:slug}', [PostController::class, 'show']);
 
