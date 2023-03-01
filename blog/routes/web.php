@@ -19,6 +19,33 @@ use App\Models\Post;
 |
 */
 
+Route::post('/newsletter', function() {
+
+    request()->validate(['email' => 'required | email']);
+
+    $mailchimp = new \MailchimpMarketing\ApiClient();
+
+    $mailchimp->setConfig([
+        'apiKey' => config('services.mailchimp.key'),
+        'server' => 'us21'
+    ]);
+
+    try {
+        $response = $mailchimp->lists->addListMember('4be3244b0a', [
+            "email_address" => request('email'),
+            "status" => "subscribed",
+        ]);
+    }catch (\Exception $e) {
+        return redirect()->back()->withErrors('message',"Cannot register the email address provided");
+       /*throw \Illuminate\Validation\ValidationException::withMessage([
+            'email' => 'Email could not be added to our newsletter'
+        ]);*/
+    }
+
+    return redirect('/')->with('success'. 'You are now signed up for our newsletter');
+
+});
+
 Route::get('/', [PostController::class, 'index'])->name('home');
 
 Route::get('/post/{post:slug}/comments', [PostCommentsController::class, 'store']);
