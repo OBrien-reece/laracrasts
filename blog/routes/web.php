@@ -28,9 +28,10 @@ Route::get('/register', [RegisterController::class. 'create']);
 Route::get('/post/{post:slug}/comments', [PostCommentsController::class, 'store']);
 
 Route::get('/', [PostController::class, 'index'])->name('home');
+
 Route::get('/posts/{post:slug}', [PostController::class, 'show']);
+
 Route::get('/admin/posts/create', [PostController::class, 'create'])->middleware('admin');
 
-Auth::routes();
+Route::post('/admin/posts/', [PostController::class, 'store'])->middleware('admin');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index']);
