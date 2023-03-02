@@ -46,8 +46,12 @@ class PostController extends Controller
 
         $attributes['user_id'] = Auth::user()->id;
 
-        Post::create($attributes);
+        $path = request()->file('thumbnail')->store('thumbnails');
 
-        return redirect('/');
+        return 'Done' . $path;
+
+//        Post::create($attributes);
+//
+//        return redirect('/');
     }
 }
